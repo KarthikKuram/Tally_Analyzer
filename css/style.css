@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&family=Playfair+Display&display=swap");
+
+body {
+  /* font-family: "Playfair Display", serif !important; */
+  font-family: "Dosis", sans-serif !important;
+}
 .my-column-1 {
   height: 100vh;
   background-color: #264653;
@@ -92,4 +98,39 @@ input[type="password"] {
 
 .loginbox a:hover {
   color: #ffd358;
+}
+
+:root {
+  --offcanvas-width: 250px;
+  --topNavbarHeight: 56px;
+}
+
+.sidebar-nav {
+  width: var(--offcanvas-width);
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-link .right-icon {
+  display: inline-flex;
+  transition: ease 0.5s;
+}
+
+.sidebar-link[aria-expanded="true"] .right-icon {
+  transform: rotate(180deg);
+}
+@media (min-width: 992px) {
+  body {
+    overflow: auto !important;
+  }
+
+  .sidebar-nav {
+    transform: none;
+    visibility: visible !important;
+    top: var(--topNavbarHeight);
+    height: calc(100% - var(--topNavbarHeight));
+  }
 }
