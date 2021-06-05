@@ -22,8 +22,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./css/style.css" />
-    <title>DASHBOARD</title>
+    <title>Tally Bolt</title>
   </head>
   <body>
     <!-- NAVBAR -->
@@ -39,8 +43,11 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <a class="navbar-brand me-auto fw-bold" href="#"
-          >OPTIMALYTICS DASHBOARD</a
+        <a class="navbar-brand me-auto fw-bold p-0" href="#"
+          ><span
+            ><i class="fas fa-bolt" style="color: rgba(0, 180, 216, 0.7)"></i
+            >TALLY BOLT</span
+          ></a
         >
         <button
           class="navbar-toggler"
@@ -60,7 +67,7 @@
           <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                class="nav-link dropdown-toggle p-1"
                 href="#"
                 id="navbarDropdown"
                 role="button"
@@ -73,11 +80,36 @@
                 class="dropdown-menu dropdown-menu-end"
                 aria-labelledby="navbarDropdown"
               >
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">
+                    <span
+                      class="material-icons align-middle"
+                      style="color: #455a64"
+                      >person</span
+                    >
+                    <span class="align-middle m-2">My Account</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><span
+                      class="material-icons align-middle"
+                      style="color: #455a64"
+                      >settings</span
+                    >
+                    <span class="align-middle m-2">Settings</span></a
+                  >
+                </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a class="dropdown-item" href="#">
+                    <span
+                      class="material-icons align-middle"
+                      style="color: #455a64"
+                      >logout</span
+                    >
+                    <span class="align-middle m-2">Log Out</span>
+                  </a>
                 </li>
               </ul>
             </li>
@@ -86,45 +118,39 @@
       </div>
     </nav>
     <!-- OFFCANVAS -->
-    <button
-      class="btn btn-primary"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasExample"
-      aria-controls="offcanvasExample"
-    >
-      Button with data-bs-target
-    </button>
-
     <div
-      class="offcanvas offcanvas-start bg-dark text-white sidebar-nav"
+      class="offcanvas offcanvas-start sidebar-nav"
       data-bs-scroll="true"
-      data-bs-backdrop="false"
+      data-bs-backdrop="true"
       tabindex="-1"
       id="offcanvasExample"
       aria-labelledby="offcanvasExampleLabel"
     >
       <div class="offcanvas-body p-0">
-        <nav class="navbar-dark">
+        <nav class="navbar-light">
           <ul class="navbar-nav">
             <li>
-              <div class="text-muted text-uppercase fw-bold small px-3">
+              <div class="text-muted text-uppercase fw-bold small px-3 mt-3">
                 DASHBOARD
               </div>
             </li>
             <li>
               <a href="#" class="nav-link px-3 active">
-                <span class="me-2"
-                  ><i class="fas fa-tachometer-alt" style="color: #ffd166"></i
-                ></span>
-                <span>Quick View</span>
+                <span
+                  class="material-icons align-middle me-2"
+                  style="color: #455a64"
+                  >dashboard</span
+                >
+                <span class="align-middle" style="font-size: 14px"
+                  >Quick View</span
+                >
               </a>
             </li>
-            <li class="my-2">
+            <li>
               <hr class="dropdown-divider" />
             </li>
             <li>
-              <div class="text-muted text-uppercase fw-bold small px-3">
+              <div class="text-muted text-uppercase fw-bold small px-3 mt-2">
                 ANALYZE BY AREA
               </div>
             </li>
@@ -132,38 +158,94 @@
               <a
                 class="nav-link px-3 sidebar-link"
                 data-bs-toggle="collapse"
-                href="#collapseExample"
+                href="#collapseSales"
                 role="button"
                 aria-expanded="false"
-                aria-controls="collapseExample"
+                aria-controls="collapseSales"
               >
-                <span class="me-2"
-                  ><i class="fas fa-columns" style="color: #ffe8d6"></i
-                ></span>
-                <span>Revenue | Sales</span>
-                <span class="right-icon ms-auto">
-                  <i class="fas fa-chevron-down"></i>
+                <span class="material-icons me-2" style="color: #455a64"
+                  >list</span
+                >
+                <span style="font-size: 14px">Revenue | Sales</span>
+                <span
+                  class="right-icon material-icons ms-auto"
+                  style="color: #455a64"
+                >
+                  expand_more
                 </span>
               </a>
-              <div class="collapse" id="collapseExample">
+              <div class="collapse" id="collapseSales">
                 <div>
                   <ul class="navbar-nav ps-3">
                     <li>
-                      <a href="#" class="nav-link px-3">
-                        <span class="me-2"
-                          ><i class="fas fa-bolt" style="color: #a5ffd6"></i
-                        ></span>
-                        <span>Revenue | Sales by Period</span>
+                      <a href="#" class="nav-link px-1">
+                        <span
+                          class="me-1 material-icons align-middle"
+                          style="color: #455a64"
+                        >
+                          date_range
+                        </span>
+                        <span class="align-middle" style="font-size: 14px">
+                          Analyze By Period</span
+                        >
                       </a>
                     </li>
                   </ul>
                   <ul class="navbar-nav ps-3">
                     <li>
-                      <a href="#" class="nav-link px-3">
-                        <span class="me-2"
-                          ><i class="fas fa-bolt" style="color: #a5ffd6"></i
-                        ></span>
-                        <span>Revenue | Sales by Party</span>
+                      <a href="#" class="nav-link px-1">
+                        <span
+                          class="me-1 material-icons align-middle"
+                          style="color: #455a64"
+                        >
+                          business
+                        </span>
+                        <span class="align-middle" style="font-size: 14px">
+                          Analyze By Cost Centre</span
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                  <ul class="navbar-nav ps-3">
+                    <li>
+                      <a href="#" class="nav-link px-1">
+                        <span
+                          class="me-1 material-icons align-middle"
+                          style="color: #455a64"
+                        >
+                          inventory
+                        </span>
+                        <span class="align-middle" style="font-size: 14px">
+                          Analyze By Inventory</span
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                  <ul class="navbar-nav ps-3">
+                    <li>
+                      <a href="#" class="nav-link px-1">
+                        <span
+                          class="me-1 material-icons align-middle"
+                          style="color: #455a64"
+                          >person</span
+                        >
+                        <span class="align-middle" style="font-size: 14px"
+                          >Analyze By Party</span
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                  <ul class="navbar-nav ps-3">
+                    <li>
+                      <a href="#" class="nav-link px-1">
+                        <span
+                          class="me-1 material-icons align-middle"
+                          style="color: #455a64"
+                          >gavel</span
+                        >
+                        <span class="align-middle" style="font-size: 14px"
+                          >Analyze By Tax</span
+                        >
                       </a>
                     </li>
                   </ul>
@@ -179,33 +261,89 @@
                 aria-expanded="false"
                 aria-controls="collapseExpense"
               >
-                <span class="me-2"
-                  ><i class="fas fa-columns" style="color: #99e2b4"></i
-                ></span>
-                <span>Expenses</span>
-                <span class="right-icon ms-auto">
-                  <i class="fas fa-chevron-down"></i>
+                <span class="material-icons me-2" style="color: #455a64"
+                  >list</span
+                >
+                <span style="font-size: 14px">Cost | Expenses</span>
+                <span
+                  class="right-icon material-icons ms-auto"
+                  style="color: #455a64"
+                >
+                  expand_more
                 </span>
               </a>
               <div class="collapse" id="collapseExpense">
                 <div>
                   <ul class="navbar-nav ps-3">
                     <li>
-                      <a href="#" class="nav-link px-3">
-                        <span class="me-2"
-                          ><i class="fas fa-bolt" style="color: #a5ffd6"></i
-                        ></span>
-                        <span>Expenses by Period</span>
+                      <a href="#" class="nav-link px-1">
+                        <span
+                          class="me-1 material-icons align-middle"
+                          style="color: #455a64"
+                        >
+                          date_range
+                        </span>
+                        <span class="align-middle" style="font-size: 14px">
+                          Analyze By Period</span
+                        >
                       </a>
                     </li>
                   </ul>
                   <ul class="navbar-nav ps-3">
                     <li>
-                      <a href="#" class="nav-link px-3">
-                        <span class="me-2"
-                          ><i class="fas fa-bolt" style="color: #a5ffd6"></i
-                        ></span>
-                        <span>Expenses by Party</span>
+                      <a href="#" class="nav-link px-1">
+                        <span
+                          class="me-1 material-icons align-middle"
+                          style="color: #455a64"
+                        >
+                          business
+                        </span>
+                        <span class="align-middle" style="font-size: 14px">
+                          Analyze By Cost Centre</span
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                  <ul class="navbar-nav ps-3">
+                    <li>
+                      <a href="#" class="nav-link px-1">
+                        <span
+                          class="me-1 material-icons align-middle"
+                          style="color: #455a64"
+                        >
+                          inventory
+                        </span>
+                        <span class="align-middle" style="font-size: 14px">
+                          Analyze By Inventory</span
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                  <ul class="navbar-nav ps-3">
+                    <li>
+                      <a href="#" class="nav-link px-1">
+                        <span
+                          class="me-1 material-icons align-middle"
+                          style="color: #455a64"
+                          >person</span
+                        >
+                        <span class="align-middle" style="font-size: 14px"
+                          >Analyze By Party</span
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                  <ul class="navbar-nav ps-3">
+                    <li>
+                      <a href="#" class="nav-link px-1">
+                        <span
+                          class="me-1 material-icons align-middle"
+                          style="color: #455a64"
+                          >gavel</span
+                        >
+                        <span class="align-middle" style="font-size: 14px"
+                          >Analyze By Tax</span
+                        >
                       </a>
                     </li>
                   </ul>
@@ -216,10 +354,40 @@
         </nav>
       </div>
     </div>
-    <main class="mt-2 pt-3">
+    <main class="mt-5 pt-3">
       <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12 fw-bold fs-3 mb-2">Dashboard</div>
+        <div class="row mb-2">
+          <div
+            class="
+              col-md-12
+              d-flex
+              flex-row
+              justify-content-start
+              align-items-center
+            "
+          >
+            <div class="align-self-baseline fw-bold fs-3">Dashboard</div>
+            <div
+              class="align-self-baseline fw-bold text-muted"
+              style="font-size: 12px"
+            >
+              <span class="m-1"><i class="fas fa-sync-alt"></i></span>
+              <span>Latest Refresh an hour back</span>
+            </div>
+            <div class="align-self-center ms-auto">
+              <div
+                class="btn-group btn-group-sm"
+                role="group"
+                aria-label="period_buttons"
+              >
+                <button type="button" class="btn btn-secondary">Week</button>
+                <button type="button" class="btn btn-secondary">Month</button>
+                <button type="button" class="btn btn-secondary">Year</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="col-md-12 fw-bold fs-3 mb-2">Dashboard</div> -->
         </div>
         <div class="row dash-cards">
           <div class="col-md-3 mb-3">
@@ -240,17 +408,17 @@
                     ></canvas>
                   </div>
                 </div>
-                <div class="d-flex flex-row mt-1">
-                  <div class="col-5 d-flex align-items-center">
+                <div class="d-flex flex-row mt-1 justify-content-start">
+                  <div class="d-flex align-items-center mb-1">
                     <span
                       class="badge rounded-pill"
-                      style="background: #f4fdf4; color: #3cb371"
+                      style="background: #e8fee0; color: #3cb371"
                       ><span><i class="fas fa-arrow-up"></i></span>
                       +&nbsp;3.5 %
                     </span>
                   </div>
-                  <div class="col-7 text-muted d-flex align-items-center">
-                    from Rs 4,00,000
+                  <div class="text-muted d-flex align-items-center mb-1">
+                    &nbsp;&nbsp;from Rs 4,00,000
                   </div>
                 </div>
               </div>
@@ -274,17 +442,17 @@
                     ></canvas>
                   </div>
                 </div>
-                <div class="d-flex flex-row mt-1">
-                  <div class="col-5 d-flex align-items-center">
+                <div class="d-flex flex-row mt-1 justify-content-start">
+                  <div class="d-flex align-items-center mb-1">
                     <span
                       class="badge rounded-pill"
                       style="background: #ffeded; color: #ff595e"
                       ><span><i class="fas fa-arrow-down"></i></span>
-                      -&nbsp;5.2 %
+                      -&nbsp;5.20 %
                     </span>
                   </div>
-                  <div class="col-7 text-muted d-flex align-items-center">
-                    from Rs 2,70,000
+                  <div class="text-muted d-flex align-items-center mb-1">
+                    &nbsp;&nbsp;from Rs 2,70,000
                   </div>
                 </div>
               </div>
@@ -300,10 +468,10 @@
                 </h6>
                 <div class="row">
                   <div class="col-6">
-                    <div class="row mb-1">
-                      <div class="col-12 pr-2 mt-0">
+                    <div class="row mb-3">
+                      <!-- <div class="col-12 pr-2 mt-0">
                         <h6 class="text-muted mb-0 fw-bold">Status</h6>
-                      </div>
+                      </div> -->
                     </div>
                     <div class="row mb-2">
                       <div class="col-12 pr-2">

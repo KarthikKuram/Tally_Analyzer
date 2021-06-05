@@ -93,6 +93,7 @@ new Chart(document.getElementById("donut-chart-dash"), {
           "rgba(115, 210, 222, 0.5)",
         ],
         borderWidth: 2,
+        radius: 50,
       },
       {
         data: [25, 25, 25, 20, 22],
@@ -105,6 +106,7 @@ new Chart(document.getElementById("donut-chart-dash"), {
         ],
         borderColor: "rgba(37, 9, 2, 0.2)",
         borderWidth: 1,
+        radius: 45,
       },
     ],
   },
@@ -118,7 +120,7 @@ new Chart(document.getElementById("donut-chart-dash"), {
     },
     borderAlign: "inner",
     cutout: 20,
-    radius: 50,
+    // radius: 50,
   },
 });
 

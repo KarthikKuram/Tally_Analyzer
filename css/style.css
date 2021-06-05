@@ -1,21 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&family=Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
 
 body {
   /* font-family: "Playfair Display", serif !important; */
-  font-family: "Dosis", sans-serif !important;
+  /* font-family: "Dosis", sans-serif !important; */
+  font-family: "Roboto", sans-serif !important;
+}
+.material-icons {
+  font-size: 20px;
+  /* border: 1px solid black; */
 }
 .my-column-1 {
   height: 100vh;
-  background-color: #264653;
+  background: linear-gradient(180deg, #2c5364, #203a43, #0f2027);
+  position: relative;
+  text-align: center;
+  color: white;
 }
 .my-column-2 {
   height: 100vh;
+  background: linear-gradient(180deg, #2c5364, #203a43, #0f2027);
 }
 
 .image-content {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.tally-text {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .tool-content {
@@ -26,7 +43,7 @@ body {
   border-radius: 20px;
   width: 320px;
   height: 420px;
-  background: #000;
+  background: rgba(0, 0, 0, 0.3);
   color: #fff;
   position: absolute;
   box-sizing: border-box;
@@ -167,4 +184,14 @@ input[type="password"] {
   background-color: #006466;
   border-radius: 50%;
   display: inline-block;
+}
+
+.btn-group .btn {
+  background: rgba(0, 18, 25, 0.7);
+  border: none;
+  color: #fff;
+}
+
+.navbar {
+  background: linear-gradient(90deg, #2c5364, #203a43, #0f2027);
 }
