@@ -2,16 +2,16 @@
 new Chart(document.getElementById("line-chart-dash"), {
   type: "line",
   data: {
-    labels: ["", "", "", "", ""],
+    labels: ["", "", "", "", "", "", "", "", "", "", "", ""],
     datasets: [
       {
-        data: [2478, 5267, 734, 784, 433],
+        data: [247, 526, 734, 584, 433, 478, 567, 734, 784, 433, 456, 297],
         // data: [0, 0, 0, 0, 0],
-        borderColor: "#014f86",
+        borderColor: "grey",
         fill: true,
-        backgroundColor: "white",
+        backgroundColor: "#f5f3f4",
         lineTension: 0.4,
-        pointRadius: 3,
+        pointRadius: 2,
         pointHoverRadius: 6,
       },
     ],
@@ -41,7 +41,20 @@ new Chart(document.getElementById("line-chart-dash"), {
 new Chart(document.getElementById("bar-chart-dash"), {
   type: "bar",
   data: {
-    labels: ["January", "February", "March", "April", "May"],
+    labels: [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ],
     datasets: [
       {
         backgroundColor: [
@@ -51,7 +64,7 @@ new Chart(document.getElementById("bar-chart-dash"), {
           "#e8c3b9",
           "#c45850",
         ],
-        data: [1478, 2267, 734, 784, 433],
+        data: [1478, 2267, 734, 784, 433, 500, 340, 567, 789, 876, 777, 343],
       },
     ],
   },
@@ -76,7 +89,7 @@ new Chart(document.getElementById("bar-chart-dash"), {
   },
 });
 
-// Donutchart for Expense Dash Card
+// Donutchart for Receivables and Payables Dash Card
 
 new Chart(document.getElementById("donut-chart-dash"), {
   type: "doughnut",
@@ -121,6 +134,45 @@ new Chart(document.getElementById("donut-chart-dash"), {
     borderAlign: "inner",
     cutout: 20,
     // radius: 50,
+  },
+});
+
+// Top 5 Customers
+
+new Chart(document.getElementById("donut-top-5-Customers"), {
+  type: "doughnut",
+  data: {
+    labels: [
+      "Customer-1",
+      "Customer-2",
+      "Customer-3",
+      "Customer-4",
+      "Customer-5",
+    ],
+    datasets: [
+      {
+        data: [47, 19, 71, 51, 22],
+        backgroundColor: [
+          "rgba(248, 198, 149, 1)",
+          "rgba(240, 171, 172, 1)",
+          "rgba(186, 219, 216, 1)",
+          "rgba(166, 188, 211, 1)",
+          "rgba(115, 210, 222, 1)",
+        ],
+        borderWidth: 3,
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      title: {
+        display: false,
+      },
+    },
+    // borderAlign: "inner",
+    cutout: 70,
   },
 });
 
@@ -181,6 +233,7 @@ new Chart(document.getElementById("bar-chart"), {
   },
 });
 
+// Data Table Initialization
 $(document).ready(function () {
   $("#example").DataTable({
     scrollY: "200px",

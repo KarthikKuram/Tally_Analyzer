@@ -195,3 +195,21 @@ input[type="password"] {
 .navbar {
   background: linear-gradient(90deg, #2c5364, #203a43, #0f2027);
 }
+
+.trend-up,
+.arrow_incoming {
+  color: #3cb371;
+}
+.trend-down,
+.arrow_outgoing {
+  color: #ff595e;
+}
+
+.progress {
+  background: rgba(237, 76, 120, 0.8);
+  border-radius: 5px;
+  height: 8px;
+}
+.progress-bar-custom {
+  background: rgba(0, 201, 167, 0.8);
+}
