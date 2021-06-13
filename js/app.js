@@ -22,7 +22,8 @@ function hexToRGBA(hex, opacity) {
 
 // Dashboard Theme colors
 // custom_colors = ["#0088c7", "#00a7d8", "#31c5e4", "#63e2ec", "#94fff4"];
-custom_colors = ["#0097dc", "#a18aeb", "#ff71c0", "#ff7670", "#ffa600"];
+// custom_colors = ["#0097dc", "#a18aeb", "#ff71c0", "#ff7670", "#ffa600"];
+custom_colors = ["#9092b0", "#bc8bbd", "#f27ea2", "#ff8066", "#f59f00"];
 
 // Dashboard Theme colors in RGBA
 var custom_colors_rgba = custom_colors.map(function (item) {
@@ -440,44 +441,55 @@ new Chart(document.getElementById("bar-ageing"), {
   },
 });
 
-// Area chart for Sales v/s Purchase
+// Area chart for Receipts v/s Payments
 new Chart(document.getElementById("area-chart-accounts"), {
-  type: "line",
+  type: "bar",
   data: {
-    labels: [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ],
+    labels: ["April", "May", "June", "July", "August", "September"],
     datasets: [
       {
-        label: "Sales",
-        data: [247, 526, 734, 584, 433, 478, 567, 734, 784, 733, 856, 997],
+        label: "Bank Receipt",
+        data: [247, 526, 734, 584, 433, 478],
+        borderColor: custom_colors_rgba[0],
+        backgroundColor: custom_colors_rgba[0],
+        borderRadius: 5,
+        order: 1,
+        yAxisID: "yAxis",
+      },
+      {
+        label: "Bank Payment",
+        data: [200, 100, 800, 300, 200, 150],
+        borderColor: custom_colors_rgba[4],
+        backgroundColor: custom_colors_rgba[4],
+        borderRadius: 5,
+        order: 1,
+        yAxisID: "yAxis",
+      },
+      {
+        label: "Cash Receipt",
+        data: [100, 300, 200, 700, 50, 10],
         borderColor: custom_colors_rgba[0],
         fill: true,
         backgroundColor: custom_colors_rgba[0],
+        order: 0,
+        type: "line",
         lineTension: 0.3,
         pointRadius: 2,
         pointHoverRadius: 6,
+        yAxisID: "yAxis_1",
       },
       {
-        label: "Purchases",
-        data: [200, 100, 800, 300, 200, 150, 600, 300, 350, 600, 220, 440],
+        label: "Cash Payment",
+        data: [50, 400, 10, 2500, 300, 432],
         borderColor: custom_colors_rgba[4],
         fill: true,
         backgroundColor: custom_colors_rgba[4],
+        order: 0,
+        type: "line",
         lineTension: 0.3,
         pointRadius: 2,
         pointHoverRadius: 6,
+        yAxisID: "yAxis_1",
       },
     ],
   },
@@ -491,12 +503,32 @@ new Chart(document.getElementById("area-chart-accounts"), {
     },
     scales: {
       x: {
-        grid: { display: false, drawBorder: false },
-        ticks: { display: false },
+        grid: { display: true, drawBorder: true },
+        ticks: {
+          display: true,
+          autoSkip: false,
+          padding: 0,
+          maxRotation: 0,
+          font: { size: 10 },
+        },
       },
-      y: {
-        grid: { display: false, drawBorder: false },
-        ticks: { display: false },
+      yAxis: {
+        type: "linear",
+        display: false,
+        position: "left",
+        grid: { drawOnChart: false },
+        ticks: {
+          display: false,
+        },
+      },
+      yAxis_1: {
+        type: "linear",
+        display: false,
+        position: "left",
+        grid: { drawOnChart: false },
+        ticks: {
+          display: false,
+        },
       },
     },
   },
@@ -574,6 +606,8 @@ new Chart(document.getElementById("radar-top-5-sales"), {
       {
         label: "Sales_Ac-1",
         backgroundColor: custom_colors_rgba[0],
+        borderColor: custom_colors[0],
+        fill: -1,
         data: [
           getRandomIntInclusive(10000, 700000),
           getRandomIntInclusive(10000, 700000),
@@ -586,6 +620,8 @@ new Chart(document.getElementById("radar-top-5-sales"), {
       {
         label: "Sales_Ac-2",
         backgroundColor: custom_colors_rgba[1],
+        borderColor: custom_colors[1],
+        fill: -1,
         data: [
           getRandomIntInclusive(10000, 700000),
           getRandomIntInclusive(10000, 700000),
@@ -598,6 +634,8 @@ new Chart(document.getElementById("radar-top-5-sales"), {
       {
         label: "Sales_Ac-3",
         backgroundColor: custom_colors_rgba[2],
+        borderColor: custom_colors[2],
+        fill: -1,
         data: [
           getRandomIntInclusive(10000, 700000),
           getRandomIntInclusive(10000, 700000),
@@ -653,4 +691,9 @@ $(document).ready(function () {
   $(".third_value").css("background", custom_colors[2]);
   $(".fourth_value").css("background", custom_colors[3]);
   $(".fifth_value").css("background", custom_colors[4]);
+  $(".first_color").css("color", custom_colors[0]);
+  $(".second_color").css("color", custom_colors[1]);
+  $(".third_color").css("color", custom_colors[2]);
+  $(".fourth_color").css("color", custom_colors[3]);
+  $(".fifth_color").css("color", custom_colors[4]);
 });
