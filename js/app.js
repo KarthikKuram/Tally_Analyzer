@@ -394,7 +394,7 @@ new Chart(document.getElementById("polar-top-5-expenses"), {
 new Chart(document.getElementById("bar-ageing"), {
   type: "bar",
   data: {
-    labels: ["0-30", "31-60", "61-90", "90-120", "> 120"],
+    labels: ["0-30", "31-60", "61-90", "91-120", "> 120"],
     datasets: [
       {
         label: "Receivable",
@@ -436,6 +436,106 @@ new Chart(document.getElementById("bar-ageing"), {
         ticks: {
           display: false,
         },
+      },
+    },
+  },
+});
+
+// Tree Map Top 5 Cost Centres
+new Chart(document.getElementById("tree-top-5-cc"), {
+  type: "treemap",
+  data: {
+    datasets: [
+      {
+        tree: [8, 4, 3, 3, 1],
+        backgroundColor: [...custom_colors],
+      },
+    ],
+  },
+  options: {
+    repsonsive: true,
+    title: {
+      display: false,
+    },
+    plugins: {
+      dataLabels: false,
+      legend: false,
+    },
+  },
+});
+
+// Radar Chart for Top 3 Inventory Items
+new Chart(document.getElementById("radar-top-3-inventory"), {
+  type: "radar",
+  data: {
+    labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sept"],
+    datasets: [
+      {
+        label: "Product-1",
+        backgroundColor: custom_colors_rgba[0],
+        borderColor: custom_colors[0],
+        fill: -1,
+        data: [
+          getRandomIntInclusive(10000, 700000),
+          getRandomIntInclusive(10000, 700000),
+          getRandomIntInclusive(10000, 700000),
+          getRandomIntInclusive(10000, 700000),
+          getRandomIntInclusive(10000, 700000),
+          getRandomIntInclusive(10000, 700000),
+        ],
+      },
+      {
+        label: "Produt-2",
+        backgroundColor: custom_colors_rgba[1],
+        borderColor: custom_colors[1],
+        fill: -1,
+        data: [
+          getRandomIntInclusive(10000, 700000),
+          getRandomIntInclusive(10000, 700000),
+          getRandomIntInclusive(10000, 700000),
+          getRandomIntInclusive(10000, 700000),
+          getRandomIntInclusive(10000, 700000),
+          getRandomIntInclusive(10000, 700000),
+        ],
+      },
+      {
+        label: "Product-3",
+        backgroundColor: custom_colors_rgba[2],
+        borderColor: custom_colors[2],
+        fill: -1,
+        data: [
+          getRandomIntInclusive(10000, 700000),
+          getRandomIntInclusive(10000, 700000),
+          getRandomIntInclusive(10000, 700000),
+          getRandomIntInclusive(50000, 450000),
+          getRandomIntInclusive(10000, 700000),
+          getRandomIntInclusive(10000, 700000),
+        ],
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: false,
+      },
+    },
+    scales: {
+      r: {
+        angleLines: { display: true },
+        ticks: { display: false },
+      },
+      x: {
+        grid: { display: false, drawBorder: false },
+        ticks: { display: false },
+      },
+      y: {
+        grid: { display: false, drawBorder: false },
+        ticks: { display: false },
       },
     },
   },
@@ -534,146 +634,6 @@ new Chart(document.getElementById("area-chart-accounts"), {
   },
 });
 
-// Bar Chart for Receivable Ageing
-new Chart(document.getElementById("bar-trend-accounts"), {
-  type: "bar",
-  data: {
-    labels: ["April", "May", "June", "July", "August", "September"],
-    datasets: [
-      {
-        label: "Sales",
-        data: [
-          getRandomIntInclusive(20000, 500000),
-          getRandomIntInclusive(20000, 500000),
-          getRandomIntInclusive(20000, 500000),
-          getRandomIntInclusive(20000, 500000),
-          getRandomIntInclusive(20000, 500000),
-          getRandomIntInclusive(20000, 500000),
-        ],
-        backgroundColor: custom_colors[0],
-      },
-      {
-        label: "Purchases",
-        data: [
-          getRandomIntInclusive(10000, 400000),
-          getRandomIntInclusive(10000, 400000),
-          getRandomIntInclusive(10000, 400000),
-          getRandomIntInclusive(10000, 400000),
-          getRandomIntInclusive(10000, 400000),
-          getRandomIntInclusive(10000, 400000),
-        ],
-        backgroundColor: custom_colors[1],
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: {
-        display: false,
-      },
-      title: {
-        display: false,
-      },
-    },
-    scales: {
-      x: {
-        grid: { display: true, drawBorder: true },
-        ticks: {
-          display: true,
-          autoSkip: false,
-          padding: 3,
-          maxRotation: 0,
-          font: { size: 10 },
-        },
-      },
-      y: {
-        grid: { display: false, drawBorder: false },
-        ticks: {
-          display: false,
-        },
-      },
-    },
-  },
-});
-
-// Radar Chart for Top 3 Sales Account
-new Chart(document.getElementById("radar-top-5-sales"), {
-  type: "radar",
-  data: {
-    labels: ["April", "May", "June", "July", "August", "September"],
-    datasets: [
-      {
-        label: "Sales_Ac-1",
-        backgroundColor: custom_colors_rgba[0],
-        borderColor: custom_colors[0],
-        fill: -1,
-        data: [
-          getRandomIntInclusive(10000, 700000),
-          getRandomIntInclusive(10000, 700000),
-          getRandomIntInclusive(10000, 700000),
-          getRandomIntInclusive(10000, 700000),
-          getRandomIntInclusive(10000, 700000),
-          getRandomIntInclusive(10000, 700000),
-        ],
-      },
-      {
-        label: "Sales_Ac-2",
-        backgroundColor: custom_colors_rgba[1],
-        borderColor: custom_colors[1],
-        fill: -1,
-        data: [
-          getRandomIntInclusive(10000, 700000),
-          getRandomIntInclusive(10000, 700000),
-          getRandomIntInclusive(10000, 700000),
-          getRandomIntInclusive(10000, 700000),
-          getRandomIntInclusive(10000, 700000),
-          getRandomIntInclusive(10000, 700000),
-        ],
-      },
-      {
-        label: "Sales_Ac-3",
-        backgroundColor: custom_colors_rgba[2],
-        borderColor: custom_colors[2],
-        fill: -1,
-        data: [
-          getRandomIntInclusive(10000, 700000),
-          getRandomIntInclusive(10000, 700000),
-          getRandomIntInclusive(10000, 700000),
-          getRandomIntInclusive(50000, 450000),
-          getRandomIntInclusive(10000, 700000),
-          getRandomIntInclusive(10000, 700000),
-        ],
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: {
-        display: false,
-      },
-      title: {
-        display: false,
-      },
-    },
-    scales: {
-      r: {
-        angleLines: { display: true },
-        ticks: { display: false },
-      },
-      x: {
-        grid: { display: false, drawBorder: false },
-        ticks: { display: false },
-      },
-      y: {
-        grid: { display: false, drawBorder: false },
-        ticks: { display: false },
-      },
-    },
-  },
-});
-
 // Data Table Initialization
 $(document).ready(function () {
   $("#example").DataTable({
@@ -696,4 +656,9 @@ $(document).ready(function () {
   $(".third_color").css("color", custom_colors[2]);
   $(".fourth_color").css("color", custom_colors[3]);
   $(".fifth_color").css("color", custom_colors[4]);
+});
+
+$("#reportrange").on("apply.daterangepicker", function (ev, picker) {
+  console.log(picker.startDate.format("YYYY-MM-DD"));
+  console.log(picker.endDate.format("YYYY-MM-DD"));
 });

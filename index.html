@@ -26,6 +26,11 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"
+    />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Tally Bolt</title>
   </head>
@@ -155,6 +160,124 @@
               </div>
             </li>
             <li>
+              <a href="#" class="nav-link px-3">
+                <span
+                  class="material-icons align-middle me-2"
+                  style="color: #455a64"
+                  >receipt</span
+                >
+                <span class="align-middle" style="font-size: 14px"
+                  >Revenue | Sales</span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3">
+                <span
+                  class="material-icons align-middle me-2"
+                  style="color: #455a64"
+                  >payment</span
+                >
+                <span class="align-middle" style="font-size: 14px"
+                  >Cost | Expenses</span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3">
+                <span
+                  class="material-icons align-middle me-2"
+                  style="color: #455a64"
+                  >business</span
+                >
+                <span class="align-middle" style="font-size: 14px"
+                  >Cost Centre</span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3">
+                <span
+                  class="material-icons align-middle me-2"
+                  style="color: #455a64"
+                  >inventory</span
+                >
+                <span class="align-middle" style="font-size: 14px"
+                  >Inventory</span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3">
+                <span
+                  class="material-icons align-middle me-2"
+                  style="color: #455a64"
+                  >account_box</span
+                >
+                <span class="align-middle" style="font-size: 14px"
+                  >Customers</span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3">
+                <span
+                  class="material-icons align-middle me-2"
+                  style="color: #455a64"
+                  >people</span
+                >
+                <span class="align-middle" style="font-size: 14px"
+                  >Vendors</span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3">
+                <span
+                  class="material-icons align-middle me-2"
+                  style="color: #455a64"
+                  >gavel</span
+                >
+                <span class="align-middle" style="font-size: 14px">Tax</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3">
+                <span
+                  class="material-icons align-middle me-2"
+                  style="color: #455a64"
+                  >account_balance</span
+                >
+                <span class="align-middle" style="font-size: 14px"
+                  >Cash & Bank</span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3">
+                <span
+                  class="material-icons align-middle me-2"
+                  style="color: #455a64"
+                  >calculate</span
+                >
+                <span class="align-middle" style="font-size: 14px"
+                  >Financial Status</span
+                >
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link px-3">
+                <span
+                  class="material-icons align-middle me-2"
+                  style="color: #455a64"
+                  >notifications</span
+                >
+                <span class="align-middle" style="font-size: 14px"
+                  >Exceptional Reports</span
+                >
+              </a>
+            </li>
+            <!-- <li>
               <a
                 class="nav-link px-3 sidebar-link"
                 data-bs-toggle="collapse"
@@ -349,7 +472,7 @@
                   </ul>
                 </div>
               </div>
-            </li>
+            </li> -->
           </ul>
         </nav>
       </div>
@@ -374,15 +497,24 @@
               <span class="m-1"><i class="fas fa-sync-alt"></i></span>
               <span>Latest Refresh an hour back</span>
             </div>
-            <div class="align-self-center ms-auto">
+            <div class="align-self-baseline ms-auto">
               <div
-                class="btn-group btn-group-sm"
-                role="group"
-                aria-label="period_buttons"
+                id="reportrange"
+                class="d-flex flex-row justify-content-start bg-light"
+                style="
+                  background: #fff;
+                  cursor: pointer;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+                  font-size: 12px;
+                "
               >
-                <button type="button" class="btn btn-secondary">Week</button>
-                <button type="button" class="btn btn-secondary">Month</button>
-                <button type="button" class="btn btn-secondary">Year</button>
+                <span class="material-icons align-self-center">date_range</span>
+                &nbsp;
+                <span class="selected-date align-self-center"></span>
+                <span class="material-icons align-self-center"
+                  >expand_more</span
+                >
               </div>
             </div>
           </div>
@@ -707,17 +839,30 @@
                       <tr>
                         <td>
                           <div class="w-100 mx-1 text-wrap">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                first_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #0088c7; color: white"
-                              >R</span
                             >
-                            <span class="align-middle mx-2">Revenue</span>
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    first_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >R</span
+                                >
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-2">Revenue</span>
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -746,19 +891,32 @@
                       <tr>
                         <td>
                           <div class="w-100 mx-1 text-wrap">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                second_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #00a7d8; color: white"
-                              >D</span
                             >
-                            <span class="align-middle mx-2"
-                              >Direct Expenses</span
-                            >
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    second_value
+                                    align-middle
+                                  "
+                                  style="background: #00a7d8; color: white"
+                                  >D</span
+                                >
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-2"
+                                  >Direct Expenses</span
+                                >
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -787,17 +945,32 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                third_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #31c5e4; color: white"
-                              >G</span
                             >
-                            <span class="align-middle mx-2">Gross Profit</span>
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    third_value
+                                    align-middle
+                                  "
+                                  style="background: #31c5e4; color: white"
+                                  >G</span
+                                >
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-2"
+                                  >Gross Profit</span
+                                >
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -826,19 +999,32 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                fourth_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #63e2ec; color: white"
-                              >E
-                            </span>
-                            <span class="align-middle mx-2"
-                              >Indirect Expenses</span
                             >
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    fourth_value
+                                    align-middle
+                                  "
+                                  style="background: #63e2ec; color: white"
+                                  >E
+                                </span>
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-2"
+                                  >Indirect Expenses</span
+                                >
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -867,17 +1053,32 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                fifth_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #94fff4; color: white"
-                              >N</span
                             >
-                            <span class="align-middle mx-2">Net Profit</span>
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    fifth_value
+                                    align-middle
+                                  "
+                                  style="background: #94fff4; color: white"
+                                  >N</span
+                                >
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-2"
+                                  >Net Profit</span
+                                >
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -997,17 +1198,32 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                first_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #0088c7; color: white"
-                              >O</span
                             >
-                            <span class="align-middle mx-1">Optimalytics</span>
+                              <div class="col-2 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    first_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >O</span
+                                >
+                              </div>
+                              <div class="col-10 text-start align-items-center">
+                                <span class="align-middle ml-1"
+                                  >Optimalytics</span
+                                >
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -1056,17 +1272,30 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                second_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #0088c7; color: white"
-                              >C</span
                             >
-                            <span class="align-middle mx-1">Cap Corp</span>
+                              <div class="col-2 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    second_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >C</span
+                                >
+                              </div>
+                              <div class="col-10 text-start align-items-center">
+                                <span class="align-middle ml-1">Cap Corp</span>
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -1115,17 +1344,30 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                third_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #0088c7; color: white"
-                              >G</span
                             >
-                            <span class="align-middle mx-1">GenPact</span>
+                              <div class="col-2 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    third_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >G</span
+                                >
+                              </div>
+                              <div class="col-10 text-start align-items-center">
+                                <span class="align-middle ml-1">GenPact</span>
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -1174,17 +1416,30 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                fourth_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #0088c7; color: white"
-                              >M</span
                             >
-                            <span class="align-middle mx-1">Merc Corp</span>
+                              <div class="col-2 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    fourth_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >M</span
+                                >
+                              </div>
+                              <div class="col-10 text-start align-items-center">
+                                <span class="align-middle ml-1">Merc Corp</span>
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -1233,17 +1488,30 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                fifth_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #0088c7; color: white"
-                              >N</span
                             >
-                            <span class="align-middle mx-1">New India</span>
+                              <div class="col-2 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    fifth_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >N</span
+                                >
+                              </div>
+                              <div class="col-10 text-start align-items-center">
+                                <span class="align-middle ml-1">New India</span>
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -1358,17 +1626,30 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                first_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #0088c7; color: white"
-                              >R</span
                             >
-                            <span class="align-middle mx-1">Ranger</span>
+                              <div class="col-2 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    first_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >R</span
+                                >
+                              </div>
+                              <div class="col-10 text-start align-items-center">
+                                <span class="align-middle ml-1">Ranger</span>
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -1417,17 +1698,32 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                second_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #0088c7; color: white"
-                              >B</span
                             >
-                            <span class="align-middle mx-1">Big Basket</span>
+                              <div class="col-2 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    second_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >B</span
+                                >
+                              </div>
+                              <div class="col-10 text-start align-items-center">
+                                <span class="align-middle ml-1"
+                                  >Big Basket</span
+                                >
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -1476,17 +1772,32 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                third_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #0088c7; color: white"
-                              >F</span
                             >
-                            <span class="align-middle mx-1">Future Group</span>
+                              <div class="col-2 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    third_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >F</span
+                                >
+                              </div>
+                              <div class="col-10 text-start align-items-center">
+                                <span class="align-middle ml-1"
+                                  >Future Group</span
+                                >
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -1535,17 +1846,30 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                fourth_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #0088c7; color: white"
-                              >H</span
                             >
-                            <span class="align-middle mx-1">Hitachi</span>
+                              <div class="col-2 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    fourth_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >H</span
+                                >
+                              </div>
+                              <div class="col-10 text-start align-items-center">
+                                <span class="align-middle ml-1">Hitachi</span>
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -1594,17 +1918,30 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                fifth_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #0088c7; color: white"
-                              >S</span
                             >
-                            <span class="align-middle mx-1">SunRise</span>
+                              <div class="col-2 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    fifth_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >S</span
+                                >
+                              </div>
+                              <div class="col-10 text-start align-items-center">
+                                <span class="align-middle ml-1">SunRise</span>
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -1721,19 +2058,32 @@
                       <tr>
                         <td>
                           <div class="w-100 mx-1 text-wrap">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                first_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #0088c7; color: white"
-                              >S</span
                             >
-                            <span class="align-middle mx-2"
-                              >Income_Account-1</span
-                            >
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    first_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >S</span
+                                >
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-2"
+                                  >Income_Account-1</span
+                                >
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -1762,19 +2112,32 @@
                       <tr>
                         <td>
                           <div class="w-100 mx-1 text-wrap">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                second_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #00a7d8; color: white"
-                              >S</span
                             >
-                            <span class="align-middle mx-2"
-                              >Income_Account-2</span
-                            >
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    second_value
+                                    align-middle
+                                  "
+                                  style="background: #00a7d8; color: white"
+                                  >S</span
+                                >
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-2"
+                                  >Income_Account-2</span
+                                >
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -1803,19 +2166,32 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                third_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #31c5e4; color: white"
-                              >S</span
                             >
-                            <span class="align-middle mx-2"
-                              >Income_Account-3</span
-                            >
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    third_value
+                                    align-middle
+                                  "
+                                  style="background: #31c5e4; color: white"
+                                  >S</span
+                                >
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-2"
+                                  >Income_Account-3</span
+                                >
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -1844,19 +2220,32 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                fourth_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #63e2ec; color: white"
-                              >S
-                            </span>
-                            <span class="align-middle mx-2"
-                              >Income_Account-4</span
                             >
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    fourth_value
+                                    align-middle
+                                  "
+                                  style="background: #63e2ec; color: white"
+                                  >S
+                                </span>
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-2"
+                                  >Income_Account-4</span
+                                >
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -1885,19 +2274,32 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                fifth_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #94fff4; color: white"
-                              >S</span
                             >
-                            <span class="align-middle mx-2"
-                              >Income_Account-5</span
-                            >
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    fifth_value
+                                    align-middle
+                                  "
+                                  style="background: #94fff4; color: white"
+                                  >S</span
+                                >
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-2"
+                                  >Income_Account-5</span
+                                >
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -1991,19 +2393,32 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                first_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #0088c7; color: white"
-                              >E</span
                             >
-                            <span class="align-middle mx-1"
-                              >Expense_Account-1</span
-                            >
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    first_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >E</span
+                                >
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-1"
+                                  >Expense_Account-1</span
+                                >
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -2031,19 +2446,32 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                second_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #0088c7; color: white"
-                              >E</span
                             >
-                            <span class="align-middle mx-1"
-                              >Expense_Account-2</span
-                            >
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    second_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >E</span
+                                >
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-1"
+                                  >Expense_Account-2</span
+                                >
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -2071,19 +2499,32 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                third_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #0088c7; color: white"
-                              >E</span
                             >
-                            <span class="align-middle mx-1"
-                              >Expense_Account-3</span
-                            >
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    third_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >E</span
+                                >
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-1"
+                                  >Expense_Account-3</span
+                                >
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -2111,19 +2552,32 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                fourth_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #0088c7; color: white"
-                              >E</span
                             >
-                            <span class="align-middle mx-1"
-                              >Expense_Account-4</span
-                            >
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    fourth_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >E</span
+                                >
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-1"
+                                  >Expense_Account-4</span
+                                >
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -2151,19 +2605,32 @@
                       <tr>
                         <td>
                           <div class="w-100 text-wrap mx-1">
-                            <span
+                            <div
                               class="
-                                badge
-                                rounded-pill
-                                fifth_value
-                                align-middle
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
                               "
-                              style="background: #0088c7; color: white"
-                              >E</span
                             >
-                            <span class="align-middle mx-1"
-                              >Expense_Account-5</span
-                            >
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    fifth_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >E</span
+                                >
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-1"
+                                  >Expense_Account-5</span
+                                >
+                              </div>
+                            </div>
                           </div>
                         </td>
                         <td>
@@ -2505,12 +2972,617 @@
             </div>
           </div>
         </div>
-
         <div
           class="row other-cards mt-3"
           style="text-shadow: 1px 2px 3px rgb(0 0 0 / 5%)"
         >
-          <div class="col-md-4 mb-1"></div>
+          <div class="col-md-4 mb-1">
+            <div class="card w-100 h-100">
+              <div class="card-header py-1" style="background: white">
+                <div class="align-items-center row">
+                  <div class="col d-flex p-0">
+                    <span
+                      class="material-icons align-self-center mx-2"
+                      style="color: #455a64"
+                    >
+                      business
+                    </span>
+                    <span class="fw-bold fs-6 align-self-center"
+                      >Top 5 Cost Centres</span
+                    >
+                  </div>
+                  <div
+                    class="text-right col-auto d-flex align-items-center px-0"
+                  >
+                    <div class="dropdown">
+                      <a href="#" style="color: inherit">
+                        <span
+                          class="material-icons align-middle"
+                          style="color: #455a64"
+                        >
+                          more_vert</span
+                        >
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body d-flex flex-column p-1">
+                <div class="d-flex justify-content-center w-100 h-100 p-0">
+                  <div class="m-0 w-100">
+                    <canvas class="chart p-1 h-100" id="tree-top-5-cc"></canvas>
+                  </div>
+                </div>
+                <div class="d-flex">
+                  <table
+                    class="table table-bordered table-sm align-middle"
+                    style="font-size: 12px"
+                  >
+                    <thead>
+                      <tr class="bg-light">
+                        <th class="text-center" scope="col" style="width: 60%">
+                          Cost Centres
+                        </th>
+                        <th class="text-center" scope="col" style="width: 40%">
+                          Accounted
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="w-100 mx-1 text-wrap">
+                            <div
+                              class="
+                                d-flex
+                                flex-row
+                                align-items-center
+                                justify-content-start
+                              "
+                            >
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    first_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >C</span
+                                >
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-2"
+                                  >Cost_Centre-1</span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="w-100 text-end align-middle">
+                            <span class="text-end align-middle mx-1"
+                              >54,00,000</span
+                            >
+                            <span
+                              class="
+                                badge
+                                rounded-pill
+                                text-center
+                                align-middle
+                              "
+                              style="
+                                background: rgba(0, 201, 167, 0.1);
+                                color: #00c9a7;
+                                display: inline-block;
+                                width: 45px;
+                              "
+                              >+ 12%</span
+                            >
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="w-100 mx-1 text-wrap">
+                            <div
+                              class="
+                                d-flex
+                                flex-row
+                                align-items-center
+                                justify-content-start
+                              "
+                            >
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    second_value
+                                    align-middle
+                                  "
+                                  style="background: #00a7d8; color: white"
+                                  >C</span
+                                >
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-2"
+                                  >Cost_Centre-2</span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="w-100 text-end align-middle">
+                            <span class="text-end align-middle mx-1"
+                              >4,00,000</span
+                            >
+                            <span
+                              class="
+                                badge
+                                rounded-pill
+                                text-center
+                                align-middle
+                              "
+                              style="
+                                background: rgba(237, 76, 120, 0.1);
+                                color: #ed4c78;
+                                display: inline-block;
+                                width: 45px;
+                              "
+                              >- 1.2%</span
+                            >
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="w-100 text-wrap mx-1">
+                            <div
+                              class="
+                                d-flex
+                                flex-row
+                                align-items-center
+                                justify-content-start
+                              "
+                            >
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    third_value
+                                    align-middle
+                                  "
+                                  style="background: #31c5e4; color: white"
+                                  >C</span
+                                >
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-2"
+                                  >Cost_Centre-3</span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="w-100 text-end align-middle">
+                            <span class="text-end align-middle mx-1"
+                              >50,00,000</span
+                            >
+                            <span
+                              class="
+                                badge
+                                rounded-pill
+                                text-center
+                                align-middle
+                              "
+                              style="
+                                background: rgba(0, 201, 167, 0.1);
+                                color: #00c9a7;
+                                display: inline-block;
+                                width: 45px;
+                              "
+                              >+ 200%</span
+                            >
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="w-100 text-wrap mx-1">
+                            <div
+                              class="
+                                d-flex
+                                flex-row
+                                align-items-center
+                                justify-content-start
+                              "
+                            >
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    fourth_value
+                                    align-middle
+                                  "
+                                  style="background: #63e2ec; color: white"
+                                  >C
+                                </span>
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-2"
+                                  >Cost_Centre-4</span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="w-100 text-end align-middle">
+                            <span class="text-end align-middle mx-1"
+                              >49,50,000</span
+                            >
+                            <span
+                              class="
+                                badge
+                                rounded-pill
+                                text-center
+                                align-middle
+                              "
+                              style="
+                                background: rgba(237, 76, 120, 0.1);
+                                color: #ed4c78;
+                                display: inline-block;
+                                width: 45px;
+                              "
+                              >- 10%</span
+                            >
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="w-100 text-wrap mx-1">
+                            <div
+                              class="
+                                d-flex
+                                flex-row
+                                align-items-center
+                                justify-content-star
+                              "
+                            >
+                              <div class="col-1 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    fifth_value
+                                    align-middle
+                                  "
+                                  style="background: #94fff4; color: white"
+                                  >C</span
+                                >
+                              </div>
+                              <div class="col-11 text-start align-items-center">
+                                <span class="align-middle mx-2"
+                                  >Cost_Centre-5</span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="w-100 text-end align-middle">
+                            <span class="text-end align-middle mx-1"
+                              >50,000</span
+                            >
+                            <span
+                              class="
+                                badge
+                                rounded-pill
+                                text-center
+                                align-middle
+                              "
+                              style="
+                                background: rgba(0, 201, 167, 0.1);
+                                color: #00c9a7;
+                                display: inline-block;
+                                width: 45px;
+                              "
+                              >+ 1%</span
+                            >
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-1">
+            <div class="card w-100 h-100">
+              <div class="card-header py-1" style="background: white">
+                <div class="align-items-center row">
+                  <div class="col d-flex p-0">
+                    <span
+                      class="material-icons align-self-center mx-2"
+                      style="color: #455a64"
+                    >
+                      radar
+                    </span>
+                    <span class="fw-bold fs-6 align-self-center"
+                      >Top 3 Inventory Distribution</span
+                    >
+                  </div>
+                  <div
+                    class="text-right col-auto d-flex align-items-center px-0"
+                  >
+                    <div class="dropdown">
+                      <a href="#" style="color: inherit">
+                        <span
+                          class="material-icons align-middle"
+                          style="color: #455a64"
+                        >
+                          more_vert</span
+                        >
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body d-flex flex-column p-1">
+                <div class="d-flex justify-content-center w-100 h-100">
+                  <div class="m-0">
+                    <canvas class="chart" id="radar-top-3-inventory"></canvas>
+                  </div>
+                </div>
+                <div class="d-flex">
+                  <table
+                    class="table table-bordered table-sm align-middle"
+                    style="font-size: 12px"
+                  >
+                    <thead>
+                      <tr class="bg-light">
+                        <th class="text-center" scope="col" style="width: 40%">
+                          Inventory
+                        </th>
+                        <th class="text-center" scope="col" style="width: 30%">
+                          Quantity
+                        </th>
+                        <th class="text-center" scope="col" style="width: 30%">
+                          Value
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="w-100 text-wrap mx-1">
+                            <div
+                              class="
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
+                              "
+                            >
+                              <div class="col-2 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    first_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >P</span
+                                >
+                              </div>
+                              <div class="col-10 text-start align-items-center">
+                                <span class="align-middle mx-1">Product_1</span>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="w-100 text-end align-middle">
+                            <span class="text-end align-middle mx-1"
+                              >24,000</span
+                            ><span
+                              class="
+                                badge
+                                rounded-pill
+                                text-center
+                                align-middle
+                              "
+                              style="
+                                background: rgba(0, 201, 167, 0.1);
+                                color: #00c9a7;
+                                display: inline-block;
+                                width: 45px;
+                              "
+                              >+ 12%</span
+                            >
+                          </div>
+                        </td>
+                        <td>
+                          <div class="w-100 text-end align-middle">
+                            <span class="text-end align-middle mx-1"
+                              >24,000</span
+                            ><span
+                              class="
+                                badge
+                                rounded-pill
+                                text-center
+                                align-middle
+                              "
+                              style="
+                                background: rgba(0, 201, 167, 0.1);
+                                color: #00c9a7;
+                                display: inline-block;
+                                width: 45px;
+                              "
+                              >+ 12%</span
+                            >
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="w-100 text-wrap mx-1">
+                            <div
+                              class="
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-center
+                              "
+                            >
+                              <div class="col-2 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    second_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >P</span
+                                >
+                              </div>
+                              <div class="col-10 text-start align-items-center">
+                                <span class="align-middle mx-1">Product_2</span>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="w-100 text-end align-middle">
+                            <span class="text-end align-middle mx-1"
+                              >44,765</span
+                            ><span
+                              class="
+                                badge
+                                rounded-pill
+                                text-center
+                                align-middle
+                              "
+                              style="
+                                background: rgba(237, 76, 120, 0.1);
+                                color: #ed4c78;
+                                display: inline-block;
+                                width: 45px;
+                              "
+                              >- 1.2%</span
+                            >
+                          </div>
+                        </td>
+                        <td>
+                          <div class="w-100 text-end align-middle">
+                            <span class="text-end align-middle mx-1"
+                              >45,00,000</span
+                            ><span
+                              class="
+                                badge
+                                rounded-pill
+                                text-center
+                                align-middle
+                              "
+                              style="
+                                background: rgba(237, 76, 120, 0.1);
+                                color: #ed4c78;
+                                display: inline-block;
+                                width: 45px;
+                              "
+                              >- 1.2%</span
+                            >
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="w-100 text-wrap mx-1">
+                            <div
+                              class="
+                                d-flex
+                                flex-row
+                                justify-content-start
+                                align-items-cente
+                              "
+                            >
+                              <div class="col-2 text-start align-items-center">
+                                <span
+                                  class="
+                                    badge
+                                    rounded-pill
+                                    third_value
+                                    align-middle
+                                  "
+                                  style="background: #0088c7; color: white"
+                                  >P</span
+                                >
+                              </div>
+                              <div class="col-10 text-start align-items-center">
+                                <span class="align-middle mx-1">Product_3</span>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="w-100 text-end align-middle">
+                            <span class="text-end align-middle mx-1"
+                              >1,00,000</span
+                            ><span
+                              class="
+                                badge
+                                rounded-pill
+                                text-center
+                                align-middle
+                              "
+                              style="
+                                background: rgba(0, 201, 167, 0.1);
+                                color: #00c9a7;
+                                display: inline-block;
+                                width: 45px;
+                              "
+                              >+ 120%</span
+                            >
+                          </div>
+                        </td>
+                        <td>
+                          <div class="w-100 text-end align-middle">
+                            <span class="text-end align-middle mx-1"
+                              >56,00,000</span
+                            ><span
+                              class="
+                                badge
+                                rounded-pill
+                                text-center
+                                align-middle
+                              "
+                              style="
+                                background: rgba(0, 201, 167, 0.1);
+                                color: #00c9a7;
+                                display: inline-block;
+                                width: 45px;
+                              "
+                              >+ 120%</span
+                            >
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="col-md-4 mb-1">
             <div class="row mb-3">
               <div class="col-md-12">
@@ -2598,7 +3670,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="card-body p-0">
+                  <div class="card-body p-1" style="font-size: 12px">
                     <div
                       class="
                         align-items-center
@@ -2903,245 +3975,6 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4 mb-1">
-            <div class="card w-100 h-100">
-              <div class="card-header py-1" style="background: white">
-                <div class="align-items-center row">
-                  <div class="col d-flex p-0">
-                    <span
-                      class="material-icons align-self-center mx-2"
-                      style="color: #455a64"
-                    >
-                      radar
-                    </span>
-                    <span class="fw-bold fs-6 align-self-center"
-                      >Top 3 Inventory Distribution</span
-                    >
-                  </div>
-                  <div
-                    class="text-right col-auto d-flex align-items-center px-0"
-                  >
-                    <div class="dropdown">
-                      <a href="#" style="color: inherit">
-                        <span
-                          class="material-icons align-middle"
-                          style="color: #455a64"
-                        >
-                          more_vert</span
-                        >
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-body d-flex flex-column p-1">
-                <div class="d-flex justify-content-center w-100 h-100 p-0">
-                  <div class="m-0">
-                    <canvas class="chart p-0" id="radar-top-5-sales"></canvas>
-                  </div>
-                </div>
-                <div class="d-flex">
-                  <table
-                    class="table table-bordered table-sm align-middle"
-                    style="font-size: 12px"
-                  >
-                    <thead>
-                      <tr class="bg-light">
-                        <th class="text-center" scope="col" style="width: 40%">
-                          Inventory
-                        </th>
-                        <th class="text-center" scope="col" style="width: 30%">
-                          Quantity
-                        </th>
-                        <th class="text-center" scope="col" style="width: 30%">
-                          Value
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <div class="w-100 text-wrap mx-1">
-                            <span
-                              class="
-                                badge
-                                rounded-pill
-                                first_value
-                                align-middle
-                              "
-                              style="background: #0088c7; color: white"
-                              >O</span
-                            >
-                            <span class="align-middle mx-1">Optimalytics</span>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="w-100 text-end align-middle">
-                            <span class="text-end align-middle mx-1"
-                              >24,000</span
-                            ><span
-                              class="
-                                badge
-                                rounded-pill
-                                text-center
-                                align-middle
-                              "
-                              style="
-                                background: #5886a5;
-                                color: white;
-                                display: inline-block;
-                                width: 35px;
-                              "
-                              >120</span
-                            >
-                          </div>
-                        </td>
-                        <td>
-                          <div class="w-100 text-end align-middle">
-                            <span class="text-end align-middle mx-1"
-                              >24,000</span
-                            ><span
-                              class="
-                                badge
-                                rounded-pill
-                                text-center
-                                align-middle
-                              "
-                              style="
-                                background: rgba(0, 201, 167, 0.1);
-                                color: #00c9a7;
-                                display: inline-block;
-                                width: 45px;
-                              "
-                              >+ 12%</span
-                            >
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="w-100 text-wrap mx-1">
-                            <span
-                              class="
-                                badge
-                                rounded-pill
-                                second_value
-                                align-middle
-                              "
-                              style="background: #0088c7; color: white"
-                              >C</span
-                            >
-                            <span class="align-middle mx-1">Cap Corp</span>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="w-100 text-end align-middle">
-                            <span class="text-end align-middle mx-1"
-                              >44,765</span
-                            ><span
-                              class="
-                                badge
-                                rounded-pill
-                                text-center
-                                align-middle
-                              "
-                              style="
-                                background: #5886a5;
-                                color: white;
-                                display: inline-block;
-                                width: 35px;
-                              "
-                              >100</span
-                            >
-                          </div>
-                        </td>
-                        <td>
-                          <div class="w-100 text-end align-middle">
-                            <span class="text-end align-middle mx-1"
-                              >45,00,000</span
-                            ><span
-                              class="
-                                badge
-                                rounded-pill
-                                text-center
-                                align-middle
-                              "
-                              style="
-                                background: rgba(237, 76, 120, 0.1);
-                                color: #ed4c78;
-                                display: inline-block;
-                                width: 45px;
-                              "
-                              >- 1.2%</span
-                            >
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="w-100 text-wrap mx-1">
-                            <span
-                              class="
-                                badge
-                                rounded-pill
-                                third_value
-                                align-middle
-                              "
-                              style="background: #0088c7; color: white"
-                              >G</span
-                            >
-                            <span class="align-middle mx-1">GenPact</span>
-                          </div>
-                        </td>
-                        <td>
-                          <div class="w-100 text-end align-middle">
-                            <span class="text-end align-middle mx-1"
-                              >1,00,000</span
-                            ><span
-                              class="
-                                badge
-                                rounded-pill
-                                text-center
-                                align-middle
-                              "
-                              style="
-                                background: #5886a5;
-                                color: white;
-                                display: inline-block;
-                                width: 35px;
-                              "
-                              >80</span
-                            >
-                          </div>
-                        </td>
-                        <td>
-                          <div class="w-100 text-end align-middle">
-                            <span class="text-end align-middle mx-1"
-                              >56,00,000</span
-                            ><span
-                              class="
-                                badge
-                                rounded-pill
-                                text-center
-                                align-middle
-                              "
-                              style="
-                                background: rgba(0, 201, 167, 0.1);
-                                color: #00c9a7;
-                                display: inline-block;
-                                width: 45px;
-                              "
-                              >+ 120%</span
-                            >
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </main>
@@ -3161,6 +3994,54 @@
       src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/chartjs-chart-treemap.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"
+    ></script>
+    <script type="text/javascript">
+      $(function () {
+        var start = moment().subtract(29, "days");
+        var end = moment();
+
+        function cb(start, end) {
+          $("#reportrange span.selected-date").html(
+            start.format("MMMM D, YYYY") + " - " + end.format("MMMM D, YYYY")
+          );
+        }
+
+        $("#reportrange").daterangepicker(
+          {
+            startDate: start,
+            endDate: end,
+            ranges: {
+              Today: [moment(), moment()],
+              Yesterday: [
+                moment().subtract(1, "days"),
+                moment().subtract(1, "days"),
+              ],
+              "Last 7 Days": [moment().subtract(6, "days"), moment()],
+              "Last 30 Days": [moment().subtract(29, "days"), moment()],
+              "This Month": [
+                moment().startOf("month"),
+                moment().endOf("month"),
+              ],
+              "Last Month": [
+                moment().subtract(1, "month").startOf("month"),
+                moment().subtract(1, "month").endOf("month"),
+              ],
+            },
+          },
+          cb
+        );
+
+        cb(start, end);
+      });
+    </script>
     <script src="./js/app.js"></script>
   </body>
 </html>
